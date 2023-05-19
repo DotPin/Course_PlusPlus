@@ -1,11 +1,9 @@
 #include "ListaGen.h"
-#include "../../Aleatorio/Aleatorio.h"
 #include <iostream>
 
 using namespace std;
 
 int main(){
-    Aleatorio *rnd = new Aleatorio(time(NULL));
     ListaGen *test = new ListaGen();
 
     cout<<"Inserta numeros\n";
