@@ -113,3 +113,18 @@ void ListaDoble::borrarSegundo(){
 
 }
 
+void ListaDoble::borraUltimo(){
+
+    Nodo *aux;
+    aux = raiz;
+    while(aux->sig != NULL){
+        aux = aux->sig;
+    }
+    aux->ant->sig = NULL;
+    aux->ant = NULL;
+
+    cout<<"Borra último nodo: "<<aux->info<<"\n";
+
+    delete aux;
+}
+

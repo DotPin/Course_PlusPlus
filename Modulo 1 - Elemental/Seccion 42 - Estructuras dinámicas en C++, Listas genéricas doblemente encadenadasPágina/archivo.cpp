@@ -34,6 +34,9 @@ int main(){
     lst->borrarSegundo();
     lst->mostrar();
 
+    lst->borraUltimo();
+    lst->mostrar();
+
 
     return 0;
 

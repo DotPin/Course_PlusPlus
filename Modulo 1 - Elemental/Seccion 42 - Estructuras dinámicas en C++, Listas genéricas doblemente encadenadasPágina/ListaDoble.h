@@ -21,6 +21,7 @@ class ListaDoble{
         void insertaAntePenultimo(int x);
         void borrarInicio();
         void borrarSegundo();
+        void borraUltimo();
         void mostrar();
 
 };
