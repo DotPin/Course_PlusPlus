@@ -28,6 +28,10 @@ int main(){
 
     lst->mostrar();
 
+    lst->borrarInicio();
+    lst->mostrar();
+
+
     return 0;
 
 }

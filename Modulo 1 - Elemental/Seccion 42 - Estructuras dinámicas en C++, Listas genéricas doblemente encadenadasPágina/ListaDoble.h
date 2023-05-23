@@ -19,6 +19,7 @@ class ListaDoble{
         void insertarFinal(int x);
         void insertaSegundo(int x);
         void insertaAntePenultimo(int x);
+        void borrarInicio();
         void mostrar();
 
 };

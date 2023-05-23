@@ -88,3 +88,14 @@ void ListaDoble::insertaAntePenultimo(int x){
     }
 }
 
+void ListaDoble::borrarInicio(){
+
+    Nodo *aux;
+    aux = raiz;
+    raiz->sig->ant = NULL;
+    raiz = raiz->sig;
+
+    cout<<"Borra raiz: "<<aux->info<<"\n";
+    delete aux;
+}
+
