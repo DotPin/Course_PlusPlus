@@ -128,3 +128,31 @@ void ListaDoble::borraUltimo(){
     delete aux;
 }
 
+void ListaDoble::borraMayor(){
+    
+    Nodo *aux;
+    int my=0;
+    aux = raiz;
+    my = aux->info;
+    while(aux != NULL){
+        if(aux->info >= my)
+            my = aux->info;
+        aux = aux->sig;
+    }
+    aux = raiz;
+    while (aux->info != my){
+        aux = aux->sig;
+    }
+    
+    cout <<"Se borra nodo info mayor: "<<aux->info<<"\n";
+    
+    if(aux->sig==NULL){
+        borraUltimo();
+    }else{
+        aux->sig->ant = aux->ant;
+        aux->ant->sig = aux->sig;
+        delete aux;
+    }
+
+}
+

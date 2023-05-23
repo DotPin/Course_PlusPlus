@@ -4,7 +4,7 @@
 int main(){
 
     ListaDoble *lst = new ListaDoble();
-    lst->insertarInicio(4);
+    lst->insertarInicio(9000);
     lst->insertarInicio(10);
     lst->insertarInicio(16);
 
@@ -24,7 +24,7 @@ int main(){
 
     lst->insertaAntePenultimo(98);
     lst->insertaAntePenultimo(76);
-    lst->insertaAntePenultimo(56);
+    lst->insertaAntePenultimo(8000);
 
     lst->mostrar();
 
@@ -37,6 +37,8 @@ int main(){
     lst->borraUltimo();
     lst->mostrar();
 
+    lst->borraMayor();
+    lst->mostrar();
 
     return 0;
 

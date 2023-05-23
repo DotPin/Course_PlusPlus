@@ -22,6 +22,7 @@ class ListaDoble{
         void borrarInicio();
         void borrarSegundo();
         void borraUltimo();
+        void borraMayor();
         void mostrar();
 
 };
