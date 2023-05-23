@@ -14,7 +14,7 @@ void ListaDoble::mostrar(){
         cout <<aux->info<<"-";
         aux = aux->sig;
     }
-
+    cout<<"\n";
 }
 
 void ListaDoble::insertarInicio(int x){
@@ -26,13 +26,33 @@ void ListaDoble::insertarInicio(int x){
         nuevo->sig = raiz;
         nuevo->ant = NULL;
         raiz = nuevo;
-        cout <<"Inserta\n";
     }else{
         nuevo->sig = raiz;
         nuevo->ant = NULL;
         raiz->ant = nuevo;
         raiz = nuevo;
     }
+}
 
+
+void ListaDoble::insertarFinal(int x){
+    Nodo *nuevo = new Nodo();
+    Nodo *aux;
+    
+    nuevo->info = x;
+    aux = raiz;
+
+    if(aux == NULL){
+        nuevo->sig = raiz;
+        nuevo->ant = NULL;
+        raiz = nuevo;
+    }else{
+        while(aux->sig != NULL){
+            aux = aux->sig;
+        }
+        nuevo->sig = aux->sig;
+        nuevo->ant = aux;
+        aux->sig = nuevo;
+    }
 
 }

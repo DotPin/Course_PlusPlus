@@ -10,6 +10,12 @@ int main(){
 
     lst->mostrar();
 
+    lst->insertarFinal(42);
+    lst->insertarFinal(34);
+    lst->insertarFinal(141);
+
+    lst->mostrar();
+
     return 0;
 
 }
