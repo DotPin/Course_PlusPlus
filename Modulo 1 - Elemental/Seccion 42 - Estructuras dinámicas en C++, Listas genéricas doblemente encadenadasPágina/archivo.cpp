@@ -31,6 +31,9 @@ int main(){
     lst->borrarInicio();
     lst->mostrar();
 
+    lst->borrarSegundo();
+    lst->mostrar();
+
 
     return 0;
 

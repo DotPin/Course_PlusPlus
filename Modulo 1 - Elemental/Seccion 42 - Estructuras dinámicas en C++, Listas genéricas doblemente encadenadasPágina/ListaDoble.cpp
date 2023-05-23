@@ -99,3 +99,17 @@ void ListaDoble::borrarInicio(){
     delete aux;
 }
 
+void ListaDoble::borrarSegundo(){
+
+    Nodo *aux;
+    aux = raiz;
+    aux = aux->sig;
+    aux->sig->ant = raiz;
+    raiz->sig = aux->sig;
+
+    cout<<"Borra Segundo nodo: "<<aux->info<<"\n";
+
+    delete aux;
+
+}
+
