@@ -16,6 +16,12 @@ int main(){
 
     lst->mostrar();
 
+    lst->insertaSegundo(121);
+    lst->insertaSegundo(152);
+    lst->insertaSegundo(15);
+
+    lst->mostrar();
+
     return 0;
 
 }

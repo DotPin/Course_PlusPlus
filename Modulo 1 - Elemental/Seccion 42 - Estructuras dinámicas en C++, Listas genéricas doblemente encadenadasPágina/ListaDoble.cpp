@@ -56,3 +56,17 @@ void ListaDoble::insertarFinal(int x){
     }
 
 }
+
+void ListaDoble::insertaSegundo(int x){
+    Nodo *nuevo = new Nodo();
+
+    nuevo->info = x;
+
+    if(raiz != NULL){
+        nuevo->sig = raiz->sig;
+        raiz->sig->ant = nuevo;
+        nuevo->ant = raiz;
+        raiz->sig = nuevo;
+    }
+
+}

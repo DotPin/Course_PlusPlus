@@ -17,6 +17,7 @@ class ListaDoble{
         ~ListaDoble();
         void insertarInicio(int x);
         void insertarFinal(int x);
+        void insertaSegundo(int x);
         void mostrar();
 
 };
