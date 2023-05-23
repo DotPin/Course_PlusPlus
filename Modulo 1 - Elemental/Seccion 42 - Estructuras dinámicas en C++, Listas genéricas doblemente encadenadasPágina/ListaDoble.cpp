@@ -71,7 +71,7 @@ void ListaDoble::insertaSegundo(int x){
 
 }
 
-void ListaDoble::insertaUltimo(int x){
+void ListaDoble::insertaAntePenultimo(int x){
     Nodo *nuevo = new Nodo();
     Nodo *aux;
     aux = raiz;
