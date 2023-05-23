@@ -22,6 +22,12 @@ int main(){
 
     lst->mostrar();
 
+    lst->insertaAntePenultimo(98);
+    lst->insertaAntePenultimo(76);
+    lst->insertaAntePenultimo(56);
+
+    lst->mostrar();
+
     return 0;
 
 }

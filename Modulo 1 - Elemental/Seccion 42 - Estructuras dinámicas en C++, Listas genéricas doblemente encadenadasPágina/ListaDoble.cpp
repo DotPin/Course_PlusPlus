@@ -70,3 +70,21 @@ void ListaDoble::insertaSegundo(int x){
     }
 
 }
+
+void ListaDoble::insertaUltimo(int x){
+    Nodo *nuevo = new Nodo();
+    Nodo *aux;
+    aux = raiz;
+    nuevo->info = x;
+
+    if(raiz != NULL){
+        while (aux->sig->sig != NULL){
+            aux = aux->sig;
+        }
+        nuevo->sig = aux->sig;
+        aux->sig->ant = nuevo;
+        nuevo->ant = aux;
+        aux->sig = nuevo;
+    }
+}
+
