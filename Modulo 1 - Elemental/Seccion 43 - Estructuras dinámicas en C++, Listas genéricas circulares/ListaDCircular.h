@@ -18,6 +18,8 @@ class ListaDCircular{
         void mostrar();
         void insertarPrimero(int x);
         void insertarUltimo(int x);
+        int cantidad();
+        void borrar(int num);
 };
 
 

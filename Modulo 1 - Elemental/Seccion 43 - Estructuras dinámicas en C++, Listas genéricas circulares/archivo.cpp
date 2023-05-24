@@ -17,5 +17,10 @@ int main(){
     ldc->insertarUltimo(1100);
     ldc->mostrar();
 
+    ldc->cantidad();
+    ldc->borrar(51);
+    ldc->mostrar();
+    ldc->cantidad();
+
     return 0;
 }

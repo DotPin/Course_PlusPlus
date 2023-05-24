@@ -56,6 +56,36 @@ void ListaDCircular::insertarUltimo(int x){
     delete aux;
 }
 
+int ListaDCircular::cantidad(){
+    Nodo *aux;
+    int cnt=0;
+    aux = raiz;
+    if(aux != NULL){
+        while(aux != NULL){
+            aux = aux->sig;
+            cnt++;
+        }
+        cout <<"Hay "+to_string(cnt)+" Nodos\n";
+    }else{
+        cout<<"Lista Vacía\n";
+    }
+}
+
+void ListaDCircular::borrar(int num){
+    Nodo *aux;
+    aux = raiz;
+    bool flag = true;
+    if(aux != NULL){
+        while(aux->sig != NULL && flag){
+            if(aux->info == num){
+                aux->sig->ant = aux->ant;
+                aux->ant->sig = aux->sig;
+                flag = false;
+            }
+        }
+    }
+    delete aux;
+}
 
 
 
