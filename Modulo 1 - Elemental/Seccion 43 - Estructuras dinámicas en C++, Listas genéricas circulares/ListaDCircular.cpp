@@ -12,26 +12,28 @@ ListaDCircular::~ListaDCircular(){
 }
 
 void ListaDCircular::mostrar(){
-    Nodo *aux;
-    aux = raiz;
-    while(aux != NULL){
-        cout <<aux->info<<"-";
-        aux = aux->sig;
-    }
+    Nodo *reco = raiz;
+    do {
+        cout<<reco->info  <<"-";
+        reco = reco->sig;
+    } while (reco != raiz);
+    cout << "\n";
 }
 
 void ListaDCircular::insertarPrimero(int x){
     Nodo *nuevo = new Nodo();
     nuevo->info = x;
-    if(raiz != NULL){
-        nuevo->sig = raiz;
-        raiz->ant = nuevo;
+    if(raiz == NULL){
+        nuevo->sig = nuevo;
+        nuevo->ant = nuevo;
         raiz = nuevo;
-        nuevo->ant = NULL;
     }else{
+        Nodo *ultimo = raiz->ant;
         nuevo->sig = raiz;
+        nuevo->ant = ultimo;
+        raiz->ant = nuevo;
+        ultimo->sig = nuevo;
         raiz = nuevo;
-        nuevo->ant = NULL;
     }
 }
 
@@ -41,15 +43,16 @@ void ListaDCircular::insertarUltimo(int x){
     aux = raiz;
     nuevo->info = x;
 
-    if(raiz != NULL){
-        while(aux->sig != NULL){
-            aux = aux->sig;
-        }
-        nuevo->sig = aux->sig;
-        nuevo->ant = aux;
-        aux->sig = nuevo;
+    if(raiz == NULL){
+        nuevo->sig = nuevo;
+        nuevo->ant = nuevo;
+        raiz = nuevo;
     }else{
-        insertarPrimero(x);
+        Nodo *ultimo = raiz->ant;
+        nuevo->sig = raiz;
+        nuevo->ant = ultimo;
+        raiz->ant = nuevo;
+        ultimo->sig = nuevo;
     }
 
     aux = NULL;
@@ -57,34 +60,48 @@ void ListaDCircular::insertarUltimo(int x){
 }
 
 int ListaDCircular::cantidad(){
-    Nodo *aux;
-    int cnt=0;
-    aux = raiz;
-    if(aux != NULL){
-        while(aux != NULL){
-            aux = aux->sig;
-            cnt++;
-        }
-        cout <<"Hay "+to_string(cnt)+" Nodos\n";
-    }else{
-        cout<<"Lista Vacía\n";
-    }
+    Nodo *reco = raiz;
+    int cnt;
+    do {
+        cnt++;
+        reco = reco->sig;
+    } while (reco != raiz);
+    return cnt;
 }
 
 void ListaDCircular::borrar(int num){
-    Nodo *aux;
-    aux = raiz;
-    bool flag = true;
-    if(aux != NULL){
-        while(aux->sig != NULL && flag){
-            if(aux->info == num){
-                aux->sig->ant = aux->ant;
-                aux->ant->sig = aux->sig;
-                flag = false;
+    if (num <= cantidad())
+    {
+        if (num == 1) 
+        {
+            if (cantidad() == 1) 
+            {
+                delete raiz;
+                raiz = NULL;
+            }
+            else 
+            {
+                Nodo *bor = raiz;
+                Nodo *ultimo = raiz->ant;
+                raiz = raiz->sig;
+                ultimo->sig = raiz;
+                raiz->ant = ultimo;
+                delete bor;
             }
         }
+        else {
+            Nodo *reco = raiz;
+            for (int f = 1; f <= num - 1; f++)
+                reco = reco->sig;
+            Nodo *bor = reco;
+            Nodo *anterior = reco->ant;
+            reco = reco->sig;
+            anterior->sig = reco;
+            reco->ant = anterior;
+            delete bor;
+        }
     }
-    delete aux;
+
 }
 
 
