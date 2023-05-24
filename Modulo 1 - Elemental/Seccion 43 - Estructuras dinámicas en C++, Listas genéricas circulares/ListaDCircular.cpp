@@ -11,19 +11,6 @@ ListaDCircular::~ListaDCircular(){
     delete raiz;
 }
 
-void ListaDCircular::insertarPrimero(int x){
-    Nodo *nuevo = new Nodo();
-    if(raiz != NULL){
-        nuevo->sig = raiz;
-        raiz->ant = nuevo;
-        nuevo->ant = NULL;
-    }else{
-        nuevo->sig = raiz;
-        raiz = nuevo;
-        nuevo->ant = NULL;
-    }
-}
-
 void ListaDCircular::mostrar(){
     Nodo *aux;
     aux = raiz;
@@ -32,4 +19,43 @@ void ListaDCircular::mostrar(){
         aux = aux->sig;
     }
 }
+
+void ListaDCircular::insertarPrimero(int x){
+    Nodo *nuevo = new Nodo();
+    nuevo->info = x;
+    if(raiz != NULL){
+        nuevo->sig = raiz;
+        raiz->ant = nuevo;
+        raiz = nuevo;
+        nuevo->ant = NULL;
+    }else{
+        nuevo->sig = raiz;
+        raiz = nuevo;
+        nuevo->ant = NULL;
+    }
+}
+
+void ListaDCircular::insertarUltimo(int x){
+    Nodo *nuevo= new Nodo();
+    Nodo *aux;
+    aux = raiz;
+    nuevo->info = x;
+
+    if(raiz != NULL){
+        while(aux->sig != NULL){
+            aux = aux->sig;
+        }
+        nuevo->sig = aux->sig;
+        nuevo->ant = aux;
+        aux->sig = nuevo;
+    }else{
+        insertarPrimero(x);
+    }
+
+    aux = NULL;
+    delete aux;
+}
+
+
+
 
